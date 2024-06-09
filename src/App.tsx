@@ -7,16 +7,13 @@ Amplify.configure(outputs);
 
 export default function App() {
   return (
-    <Authenticator signUpAttributes={[
-      'email',
-      'phone_number'
-    ]}>
-      {({ signOut, user }) => (
-        <main>
-          <h1>Hello From Amplify</h1>
-          <button onClick={signOut}>Sign out</button>
-        </main>
-      )}
-    </Authenticator>
+<Authenticator signUpAttributes={['email', 'phone_number']}>
+  {({ signOut }) => (
+    <main>
+      <h1>Hello</h1>
+      <button onClick={signOut}>Sign out</button>
+    </main>
+  )}
+</Authenticator>
   );
 }
