@@ -9,27 +9,17 @@ export default function App() {
   const { authStatus } = useAuthenticator(context => [context.authStatus]);
 
   return (
-    <>
+    <div>
+      <p>Authentication Status: {authStatus}</p>
       {authStatus === 'configuring' && 'Loading...'}
       {authStatus !== 'authenticated' ? (
-        <LoginScreen />
+        <Authenticator />
       ) : (
         <Home />
       )}
-    </>
-  );
-}
-
-const LoginScreen = () => {
-  return (
-    <div>
-      <div>Authentication required</div>
-      <Authenticator>
-        {({ signIn }) => <button onClick={signIn}>Login</button>}
-      </Authenticator>
     </div>
   );
-};
+}
 
 const Home = () => {
   const { signOut } = useAuthenticator(context => [context.user, context.signOut]);
